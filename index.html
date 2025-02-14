@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Marco</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<Style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e0f7fa; /* Light blue background */
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.envelope {
+  font-size: 20rem; /* Increased the font size */
+  color: #00bcd4; /* Light blue color for the envelope */
+  z-index: 2;
+  margin: 0 auto; /* Center the envelope horizontally */
+  max-width: 100%; /* Make the envelope responsive */
+  text-align: center; /* Center the envelope text */
+  position: relative;
+  top: -100px; /* Move the envelope up */
+}
+
+.message {
+    margin-top: -130px; /* Adjust the message to the top */
+    font-size: 1rem;
+    color: #465b72; /* Darker light blue for the text */
+    text-align: center;
+    z-index: 2;
+    font-weight: bold; /* Make the message bold */
+    
+}
+
+
+
+/* Heart rain animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+.heart {
+    position: absolute;
+    top: -10%;
+    color: #00bcd4; /* Light blue color for the hearts */
+    font-size: 2rem;
+    animation: fall linear infinite;
+    user-select: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Use a column layout */
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .envelope {
+        font-size: 15rem; /* Decrease the font size on small screens */
+    }
+}
+
+/* Media query for extra small screens */
+@media (max-width: 480px) {
+    .envelope {
+        font-size: 10rem; /* Decrease the font size on extra small screens */
+    }
+}
+
+.button {
+    position: absolute;
+    margin-top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+
+</Style>
+<body>
+    <div class="container">
+        <div class="envelope">💌</div>
+        <p class="message">"I have a letter for you mahal ko"
+            <button class="button" onclick="window.location.href='https://iadoreyoutae.carrd.co/';">Click to Open</button>
+        </p>
+       
+    </div>
+    <script src="script.js"></script>
+</body>
+
+
+
+<Script>
+// Function to create a heart element
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.innerHTML = '❤️';
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 6 + 4 + 's'; // Increased the duration
+    document.body.appendChild(heart);
+
+    // Remove the heart after it falls
+    setTimeout(() => {
+        heart.remove();
+    }, 7000); // Increased the timeout to match the new animation duration
+}
+
+function redirectToLink() {
+    window.location.href = 'https://iadoreyoutae.carrd.co/';
+  }
+
+// Create hearts every 300ms
+setInterval(createHeart, 300);
+
+</Script>
+</html>
