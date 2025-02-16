@@ -36,7 +36,24 @@ body {
   text-align: center; /* Center the envelope text */
   position: relative;
   top: -100px; /* Move the envelope up */
+  animation: envelopeAnimation 1s ease-in-out;
 }
+
+@keyframes envelopeAnimation {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 
 .message {
     margin-top: -130px; /* Adjust the message to the top */
@@ -45,8 +62,19 @@ body {
     text-align: center;
     z-index: 2;
     font-weight: bold; /* Make the message bold */
-    
+    animation: fadeIn 2s ease-in-out;
+  
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 
 
@@ -114,7 +142,7 @@ body {
 <body>
     <div class="container">
         <div class="envelope">💌</div>
-        <p class="message">"I have a letter for you mahal ko"
+        <p class="message">"You have a letter from your future husband"
             <button class="button" onclick="window.location.href='https://marcocoralde.github.io/Mahal2/';">Click to Open</button>
         </p>
        
