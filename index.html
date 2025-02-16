@@ -37,6 +37,7 @@ body {
   position: relative;
   top: -100px; /* Move the envelope up */
   animation: envelopeAnimation 1s ease-in-out;
+  cursor: default;
 }
 
 @keyframes envelopeAnimation {
@@ -63,6 +64,7 @@ body {
     z-index: 2;
     font-weight: bold; /* Make the message bold */
     animation: fadeIn 2s ease-in-out;
+    cursor: default;
   
 }
 
@@ -160,7 +162,21 @@ function createHeart() {
     heart.classList.add('heart');
     heart.style.left = Math.random() * 100 + 'vw';
     heart.style.animationDuration = Math.random() * 6 + 4 + 's'; // Increased the duration
+    heart.style.opacity = 0; // Make the heart invisible initially
+
+    // Randomly increase the font size of the heart
+    if (Math.random() < 0.2) { // 20% chance of a big heart
+        heart.style.fontSize = '4rem';
+    } else {
+        heart.style.fontSize = '2rem';
+    }
+
     document.body.appendChild(heart);
+
+    // Animate the heart to appear and fall
+    setTimeout(() => {
+        heart.style.opacity = 1; // Make the heart visible
+    }, 100); // Delay the appearance by 100ms
 
     // Remove the heart after it falls
     setTimeout(() => {
@@ -173,7 +189,7 @@ function redirectToLink() {
   }
 
 // Create hearts every 300ms
-setInterval(createHeart, 300);
+setInterval(createHeart, 700);
 
 </Script>
 </html>
